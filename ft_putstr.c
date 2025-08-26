@@ -17,7 +17,7 @@ int	ft_putstr(char *s)
 	int	i;
 
 	if (!s)
-		return 0;
+		return (ft_putstr("(NULL)"));
 	i = 0;
 	while (s[i])
 	{

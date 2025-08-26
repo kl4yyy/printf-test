@@ -6,13 +6,13 @@
 /*   By: mnajem <mnajem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 18:03:49 by mnajem            #+#    #+#             */
-/*   Updated: 2025/08/25 22:19:41 by mnajem           ###   ########.fr       */
+/*   Updated: 2025/08/26 22:26:44 by mnajem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_x(unsigned int n, int a)
+int	ft_x(unsigned int n, char a)
 {
 	int		count;
 	char	*b;

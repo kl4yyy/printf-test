@@ -6,7 +6,7 @@
 /*   By: mnajem <mnajem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 10:41:17 by mnajem            #+#    #+#             */
-/*   Updated: 2025/08/25 23:37:05 by mnajem           ###   ########.fr       */
+/*   Updated: 2025/08/26 22:45:23 by mnajem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int ft_selc(char c , va_list args)
 	if (c == 'd' || c == 'i')
     count += ft_putnbr(va_arg(args, int));
 	if (c == 'u')
-    count += ft_uns(va_arg(args, int));
+    count += ft_uns(va_arg(args,unsigned int));
 	if (c == 'p')
     count += ft_ptr(va_arg(args, unsigned long));
 	if (c == 'x' || c == 'X')
@@ -50,7 +50,7 @@ int ft_printf(const char *s, ...)
     va_start(args,s);
     while(s[i])
     {
-        if(s[i]=='%')
+        if(s[i]=='%' && s[++i] != '\0')
             count+= ft_selc(s[++i],args);
         else
             count+=ft_putchar(s[i]);
