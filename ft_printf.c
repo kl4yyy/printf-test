@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mnajem <mnajem@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/23 10:41:17 by mnajem            #+#    #+#             */
+/*   Updated: 2025/08/25 23:37:05 by mnajem           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int ft_selc(char c , va_list args)
@@ -6,7 +18,7 @@ static int ft_selc(char c , va_list args)
 
 	count = 0;
 	if (c == 'c')
-    count += ft_putchar(va_arg(args, char));
+    count += ft_putchar(va_arg(args, int));
 	if (c == 's')
     count += ft_putstr(va_arg(args, char *));
 	if (c == 'd' || c == 'i')
@@ -33,13 +45,15 @@ int ft_printf(const char *s, ...)
 
     count = 0;
     i = 0;
+    if (s == NULL)
+        return (-1);
     va_start(args,s);
     while(s[i])
     {
         if(s[i]=='%')
             count+= ft_selc(s[++i],args);
         else
-            count+=ft_putchar(s[i],1);
+            count+=ft_putchar(s[i]);
         i++;
     }
     va_end(args);
